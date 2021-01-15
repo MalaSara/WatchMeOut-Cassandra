@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchMeOut", "WatchMeOut\WatchMeOut.csproj", "{B9E01EED-5F53-4B2B-9433-C28EA325F3FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchMeOutLibrary", "WatchMeOutLibrary\WatchMeOutLibrary.csproj", "{C994EED2-4A3B-41B0-8E1D-B23EB1C55B4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9E01EED-5F53-4B2B-9433-C28EA325F3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E01EED-5F53-4B2B-9433-C28EA325F3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E01EED-5F53-4B2B-9433-C28EA325F3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E01EED-5F53-4B2B-9433-C28EA325F3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C994EED2-4A3B-41B0-8E1D-B23EB1C55B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C994EED2-4A3B-41B0-8E1D-B23EB1C55B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C994EED2-4A3B-41B0-8E1D-B23EB1C55B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C994EED2-4A3B-41B0-8E1D-B23EB1C55B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77923921-1826-45BF-84D9-CC697826979B}
+	EndGlobalSection
+EndGlobal
