@@ -51,7 +51,7 @@ namespace WatchMeOut
             Korisnik k = DataProvider.GetKorisnik("1");
              if (k != null)
              {
-                DataProvider.DeleteKorisnik("1", "1");
+                DataProvider.DeleteKorisnik("1");
 
                     MessageBox.Show("Uspesno obrisan korisnik " + k.ime + k.prezime);
               }
@@ -61,7 +61,7 @@ namespace WatchMeOut
 
         private void VratiSanjinOmiljeniZanr_Click_1(object sender, EventArgs e)
         {
-            Korisnik k = DataProvider.GetKorisnik("Sanja");
+            Korisnik k = DataProvider.GetKorisnik("2");
             MessageBox.Show(k.omiljeniZanr);
         }
 

@@ -19,7 +19,7 @@ namespace WatchMeOutLibrary
             if (session == null)
                 return null;
 
-            Row korisnikPodatak = session.Execute("select * from \"Korisnik\" where korisnikId='" + korisnikId + "'").FirstOrDefault();
+            Row korisnikPodatak = session.Execute("select * from \"Korisnik\" where \"korisnikId\"='" + korisnikId + "'").FirstOrDefault();
 
             if (korisnikPodatak != null)
             {
@@ -81,7 +81,7 @@ namespace WatchMeOutLibrary
             if (session == null)
                 return;
 
-            RowSet korisnikPodatak = session.Execute("insert into \"Korisnik\"(korisnikId, administrator,ime,prezime,brojtelefona,adresa,daLiJeIznajmioFilm, daLiJeVratioSveIznajmljeneFilmove,brojIznajmljenihFilmova,omiljeniZanr,idDoniranogFilma) values ('" + korisnikId + "', '" + administrator + "','" + ime + "','" + prezime + "','" + brojtelefona + "','" + adresa + "','" + daLiJeIznajmioFilm + "', '" + daLiJeVratioSveIznajmljeneFilmove + "','" + brojIznajmljenihFilmova + "','" + omiljeniZanr + "','" + idDoniranogFilma + "')");
+            RowSet korisnikPodatak = session.Execute("insert into \"Korisnik\"(\"korisnikId\", administrator,ime,prezime,brojtelefona,adresa,\"daLiJeIznajmioFilm\", \"daLiJeVratioSveIznajmljeneFilmove\",\"brojIznajmljenihFilmova\",\"omiljeniZanr\",\"idDoniranogFilma\") values" + "('" + korisnikId + "', '" + administrator + "','" + ime + "','" + prezime + "','" + brojtelefona + "','" + adresa + "','" + daLiJeIznajmioFilm + "', '" + daLiJeVratioSveIznajmljeneFilmove + "','" + brojIznajmljenihFilmova + "','" + omiljeniZanr + "','" + idDoniranogFilma + "')");
 
 
         }

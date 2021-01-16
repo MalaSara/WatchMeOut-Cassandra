@@ -11,3 +11,18 @@ CREATE TABLE "Film"(
     "glavniGlumci" text,
     PRIMARY KEY ("filmId")
 )
+
+CREATE TABLE "Korisnik" (
+    "korisnikId" text,
+    administrator text,
+    ime text,
+    prezime text,
+    brojtelefona text,
+    adresa text,
+    "daLiJeIznajmioFilm" text,
+    "daLiJeVratioSveIznajmljeneFilmove" text,
+    "brojIznajmljenihFilmova" text,
+    "omiljeniZanr" text,
+    "idDoniranogFilma" text,
+    PRIMARY KEY("korisnikId")
+)
