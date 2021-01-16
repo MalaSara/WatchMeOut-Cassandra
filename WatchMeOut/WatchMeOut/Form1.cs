@@ -47,7 +47,16 @@ namespace WatchMeOut
 
         private void ObrisiKorisnika_Click(object sender, EventArgs e)
         {
-            DataProvider.DeleteKorisnik("1", "1");
+            
+            Korisnik k = DataProvider.GetKorisnik("1");
+             if (k != null)
+             {
+                DataProvider.DeleteKorisnik("1", "1");
+
+                    MessageBox.Show("Uspesno obrisan korisnik " + k.ime + k.prezime);
+              }
+                else
+                    MessageBox.Show("U bazi ne postoji korisnik sa id-jem 1!!");
         }
 
         private void VratiSanjinOmiljeniZanr_Click_1(object sender, EventArgs e)

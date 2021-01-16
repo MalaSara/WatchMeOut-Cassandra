@@ -11,7 +11,7 @@ namespace WatchMeOutLibrary
     {
         #region Korisnici
 
-        public static Korisnik GetKorisnik(string ime)
+        public static Korisnik GetKorisnik(string korisnikId)
         {
             ISession session = SessionManager.GetSession();
             Korisnik korisnik = new Korisnik();
@@ -19,9 +19,9 @@ namespace WatchMeOutLibrary
             if (session == null)
                 return null;
 
-            Row korisnikPodatak = session.Execute("select * from \"Korisnik\" where ime='" + ime + "'").FirstOrDefault();
+            Row korisnikPodatak = session.Execute("select * from \"Korisnik\" where korisnikId='" + korisnikId + "'").FirstOrDefault();
 
-            if (korisnikPodatak == null)
+            if (korisnikPodatak != null)
             {
 
                 korisnik.korisnikId = korisnikPodatak["korisnikId"] != null ? korisnikPodatak["korisnikId"].ToString() : string.Empty;
@@ -86,19 +86,17 @@ namespace WatchMeOutLibrary
 
         }
 
-        public static void DeleteKorisnik(string korisnikId, string idDoniranogFilma)
+        public static void DeleteKorisnik(string korisnikId)
         {
             ISession session = SessionManager.GetSession();
 
             if (session == null)
                 return;
 
-            RowSet korisnikPodatak = session.Execute("delete from \"Korisnik\" where \"korisnikId\"='" + korisnikId + "' and \"idDoniranogFilma\"='" + idDoniranogFilma + "'");
+            RowSet korisnikPodatak = session.Execute("delete from \"Korisnik\" where \"korisnikId\"='" + korisnikId +  "'");
 
 
         }
-
-
 
         #endregion
 
