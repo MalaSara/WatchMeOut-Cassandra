@@ -35,6 +35,11 @@
             this.VratiKorisnike = new System.Windows.Forms.Button();
             this.ObrisiKorisnika = new System.Windows.Forms.Button();
             this.VratiSanjinOmiljeniZanr = new System.Windows.Forms.Button();
+            this.btnDodajScentOfAWoman = new System.Windows.Forms.Button();
+            this.btnVratiFilmove = new System.Windows.Forms.Button();
+            this.btnDodajModigliani = new System.Windows.Forms.Button();
+            this.btnDodajTheAgeOfAdaline = new System.Windows.Forms.Button();
+            this.btnObrisiFilm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DodajMilanaMilanovica
@@ -97,11 +102,66 @@
             this.VratiSanjinOmiljeniZanr.UseVisualStyleBackColor = true;
             this.VratiSanjinOmiljeniZanr.Click += new System.EventHandler(this.VratiSanjinOmiljeniZanr_Click_1);
             // 
+            // btnDodajScentOfAWoman
+            // 
+            this.btnDodajScentOfAWoman.Location = new System.Drawing.Point(32, 179);
+            this.btnDodajScentOfAWoman.Name = "btnDodajScentOfAWoman";
+            this.btnDodajScentOfAWoman.Size = new System.Drawing.Size(158, 23);
+            this.btnDodajScentOfAWoman.TabIndex = 6;
+            this.btnDodajScentOfAWoman.Text = "Dodaj \"Scent of a Woman\"";
+            this.btnDodajScentOfAWoman.UseVisualStyleBackColor = true;
+            this.btnDodajScentOfAWoman.Click += new System.EventHandler(this.btnDodajScentOfAWoman_Click);
+            // 
+            // btnVratiFilmove
+            // 
+            this.btnVratiFilmove.Location = new System.Drawing.Point(215, 179);
+            this.btnVratiFilmove.Name = "btnVratiFilmove";
+            this.btnVratiFilmove.Size = new System.Drawing.Size(158, 23);
+            this.btnVratiFilmove.TabIndex = 7;
+            this.btnVratiFilmove.Text = "Vrati Filmove";
+            this.btnVratiFilmove.UseVisualStyleBackColor = true;
+            this.btnVratiFilmove.Click += new System.EventHandler(this.btnVratiFilmove_Click_1);
+            // 
+            // btnDodajModigliani
+            // 
+            this.btnDodajModigliani.Location = new System.Drawing.Point(32, 208);
+            this.btnDodajModigliani.Name = "btnDodajModigliani";
+            this.btnDodajModigliani.Size = new System.Drawing.Size(158, 23);
+            this.btnDodajModigliani.TabIndex = 8;
+            this.btnDodajModigliani.Text = "Dodaj \"Modigliani\"";
+            this.btnDodajModigliani.UseVisualStyleBackColor = true;
+            this.btnDodajModigliani.Click += new System.EventHandler(this.btnDodajModigliani_Click);
+            // 
+            // btnDodajTheAgeOfAdaline
+            // 
+            this.btnDodajTheAgeOfAdaline.Location = new System.Drawing.Point(32, 237);
+            this.btnDodajTheAgeOfAdaline.Name = "btnDodajTheAgeOfAdaline";
+            this.btnDodajTheAgeOfAdaline.Size = new System.Drawing.Size(158, 23);
+            this.btnDodajTheAgeOfAdaline.TabIndex = 9;
+            this.btnDodajTheAgeOfAdaline.Text = "Dodaj \"The Age of Adaline\"";
+            this.btnDodajTheAgeOfAdaline.UseVisualStyleBackColor = true;
+            this.btnDodajTheAgeOfAdaline.Click += new System.EventHandler(this.btnDodajTheAgeOfAdaline_Click);
+            // 
+            // btnObrisiFilm
+            // 
+            this.btnObrisiFilm.Location = new System.Drawing.Point(215, 208);
+            this.btnObrisiFilm.Name = "btnObrisiFilm";
+            this.btnObrisiFilm.Size = new System.Drawing.Size(158, 23);
+            this.btnObrisiFilm.TabIndex = 10;
+            this.btnObrisiFilm.Text = "Obrisi Film";
+            this.btnObrisiFilm.UseVisualStyleBackColor = true;
+            this.btnObrisiFilm.Click += new System.EventHandler(this.btnObrisiFilm_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 350);
+            this.ClientSize = new System.Drawing.Size(535, 413);
+            this.Controls.Add(this.btnObrisiFilm);
+            this.Controls.Add(this.btnDodajTheAgeOfAdaline);
+            this.Controls.Add(this.btnDodajModigliani);
+            this.Controls.Add(this.btnVratiFilmove);
+            this.Controls.Add(this.btnDodajScentOfAWoman);
             this.Controls.Add(this.VratiSanjinOmiljeniZanr);
             this.Controls.Add(this.ObrisiKorisnika);
             this.Controls.Add(this.VratiKorisnike);
@@ -123,6 +183,11 @@
         private System.Windows.Forms.Button VratiKorisnike;
         private System.Windows.Forms.Button ObrisiKorisnika;
         private System.Windows.Forms.Button VratiSanjinOmiljeniZanr;
+        private System.Windows.Forms.Button btnDodajScentOfAWoman;
+        private System.Windows.Forms.Button btnVratiFilmove;
+        private System.Windows.Forms.Button btnDodajModigliani;
+        private System.Windows.Forms.Button btnDodajTheAgeOfAdaline;
+        private System.Windows.Forms.Button btnObrisiFilm;
     }
 }
 

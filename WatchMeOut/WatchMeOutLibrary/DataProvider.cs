@@ -102,5 +102,102 @@ namespace WatchMeOutLibrary
 
         #endregion
 
+        #region Film
+
+        public static Film GetFilm(string idFilma)
+        {
+            ISession session = SessionManager.GetSession();
+            Film film = new Film();
+
+            if (session == null)
+                return null;
+
+            Row filmPodatak = session.Execute("select * from \"Film\" where \"filmId\" = '" + idFilma + "'").FirstOrDefault();
+
+            if (filmPodatak != null)
+            {
+                film.filmId = filmPodatak["filmId"] != null ? filmPodatak["filmId"].ToString() : string.Empty;
+                film.trajanjeFilma = filmPodatak["trajanjeFilma"] != null ? filmPodatak["trajanjeFilma"].ToString() : string.Empty; ;
+                film.nazivFilma = filmPodatak["nazivFilma"] != null ? filmPodatak["nazivFilma"].ToString() : string.Empty;
+
+                film.godina = filmPodatak["godina"] != null ? filmPodatak["godina"].ToString() : string.Empty;
+                film.zanr = filmPodatak["zanr"] != null ? filmPodatak["zanr"].ToString() : string.Empty;
+
+                film.jezik = filmPodatak["jezik"] != null ? filmPodatak["jezik"].ToString() : string.Empty;
+
+                film.zemljaPorekla = filmPodatak["zemljaPorekla"] != null ? filmPodatak["zemljaPorekla"].ToString() : string.Empty;
+                film.idKorisnikaKojiTrenutnoGleda = filmPodatak["idKorisnikaKojiTrenutnoGleda"] != null ? filmPodatak["idKorisnikaKojiTrenutnoGleda"].ToString() : string.Empty; ;
+                film.brojIznajmljivanja = filmPodatak["brojIznajmljivanja"] != null ? filmPodatak["brojIznajmljivanja"].ToString() : string.Empty; ;
+
+                film.glavniGlumci = filmPodatak["glavniGlumci"] != null ? filmPodatak["glavniGlumci"].ToString() : string.Empty;
+
+                return film;
+            }
+            return null;
+        }
+        
+        public static List<Film> GetFilmovi()
+        {
+            ISession session = SessionManager.GetSession();
+            List<Film> filmovi = new List<Film>();
+
+            if (session == null)
+                return null;
+
+            var filmoviPodaci = session.Execute("select * from \"Film\"");
+
+            foreach (var filmPodatak in filmoviPodaci)
+            {
+                Film film = new Film();
+
+                film.filmId = filmPodatak["filmId"] != null ? filmPodatak["filmId"].ToString() : string.Empty;
+                film.trajanjeFilma = filmPodatak["trajanjeFilma"] != null ? filmPodatak["trajanjeFilma"].ToString() : string.Empty;;
+                film.nazivFilma = filmPodatak["nazivFilma"] != null ? filmPodatak["nazivFilma"].ToString() : string.Empty;
+
+                film.godina = filmPodatak["godina"] != null ? filmPodatak["godina"].ToString() : string.Empty;
+                film.zanr = filmPodatak["zanr"] != null ? filmPodatak["zanr"].ToString() : string.Empty;
+
+                film.jezik = filmPodatak["jezik"] != null ? filmPodatak["jezik"].ToString() : string.Empty;
+
+                film.zemljaPorekla = filmPodatak["zemljaPorekla"] != null ? filmPodatak["zemljaPorekla"].ToString() : string.Empty;
+                film.idKorisnikaKojiTrenutnoGleda = filmPodatak["idKorisnikaKojiTrenutnoGleda"] != null ? filmPodatak["idKorisnikaKojiTrenutnoGleda"].ToString() : string.Empty;;
+                film.brojIznajmljivanja = filmPodatak["brojIznajmljivanja"] != null ? filmPodatak["brojIznajmljivanja"].ToString() : string.Empty;;
+
+                film.glavniGlumci = filmPodatak["glavniGlumci"] != null ? filmPodatak["glavniGlumci"].ToString() : string.Empty;
+
+                filmovi.Add(film);
+            }
+
+            return filmovi;
+        }
+
+        public static void AddFilm(string filmId, string trajanjeFilma, string nazivFilma, string zanr,
+            string godina, string jezik, string zemljaPorekla, string idKorisnikaKojiTrenutnoGleda,
+            string brojIznajmljivanja, string glavniGlumci)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            RowSet filmPodatak = session.Execute("insert into \"Film\"(\"filmId\", \"trajanjeFilma\", \"nazivFilma\", zanr, " +
+                "godina, jezik, \"zemljaPorekla\", \"idKorisnikaKojiTrenutnoGleda\", \"brojIznajmljivanja\", \"glavniGlumci\") values " +
+                "( '" + filmId + "','" + trajanjeFilma + "', '" + nazivFilma + "', '" + zanr + "', '" + godina +
+                "', '" + jezik + "', '" + zemljaPorekla + "', '" + idKorisnikaKojiTrenutnoGleda + "', '" + brojIznajmljivanja +
+                "', '" + glavniGlumci + "')");
+        }
+        
+        public static void DeleteFilm(string filmId)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            RowSet filmPodatak = session.Execute("delete from \"Film\" where \"filmId\" = '" + filmId + "'");
+        }
+
+        #endregion
+
     }
 }

@@ -39,7 +39,7 @@ namespace WatchMeOut
         private void VratiKorisnike_Click(object sender, EventArgs e)
         {
             List<Korisnik> korisnici = DataProvider.GetKorisnici();
-            foreach( Korisnik k in korisnici)
+            foreach (Korisnik k in korisnici)
             {
                 MessageBox.Show(k.ime + k.prezime + k.idDoniranogFilma);
             }
@@ -54,6 +54,45 @@ namespace WatchMeOut
         {
             Korisnik k = DataProvider.GetKorisnik("Sanja");
             MessageBox.Show(k.omiljeniZanr);
+        }
+
+        private void btnDodajScentOfAWoman_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddFilm("1", "2.46", "Scent of a Woman", "Drama", "1992", "Engleski", "SAD", "1", "2", "Al Pacino, Chris O Donnell");
+        }
+
+        private void btnVratiFilmove_Click_1(object sender, EventArgs e)
+        {
+            List<Film> filmovi = DataProvider.GetFilmovi();
+
+            foreach (Film film in filmovi)
+            {
+                MessageBox.Show(film.nazivFilma + "\t" + film.godina + "\t" + film.glavniGlumci + "\n");
+            }
+        }
+
+        private void btnDodajModigliani_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddFilm("2", "2.08", "Modigliani", "Biografija, Drama", "2004", "Engleski", "UK, Nemacka, Rumunija, Francuska, Italija", "2", "5", "Andy Garcia, Elsa Zylberstein");
+        }
+
+        private void btnDodajTheAgeOfAdaline_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddFilm("3", "1.52", "The Age of Adaline", "Drama, Fantazija, Romansa", "2015", "Engleski, Portugalski, Italijanski", "SAD, Kanada", "3", "4", "Blake Lively, Michiel Huisman, Harrison Ford");
+        }
+
+        private void btnObrisiFilm_Click(object sender, EventArgs e)
+        {
+            Film film = DataProvider.GetFilm("3");
+
+            if (film != null)
+            {
+                DataProvider.DeleteFilm("3");
+
+                MessageBox.Show("Uspesno obrisan film " + film.nazivFilma + " iz " + film.godina + ". godine");
+            }
+            else
+                MessageBox.Show("U bazi ne postoji film sa id-jem 3!!");
         }
     }
 }
