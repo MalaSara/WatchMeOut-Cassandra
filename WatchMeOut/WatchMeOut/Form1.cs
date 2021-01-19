@@ -47,16 +47,8 @@ namespace WatchMeOut
 
         private void ObrisiKorisnika_Click(object sender, EventArgs e)
         {
-            
-            Korisnik k = DataProvider.GetKorisnik("1");
-             if (k != null)
-             {
-                DataProvider.DeleteKorisnik("1");
-
-                    MessageBox.Show("Uspesno obrisan korisnik " + k.ime + k.prezime);
-              }
-                else
-                    MessageBox.Show("U bazi ne postoji korisnik sa id-jem 1!!");
+            BrisanjeKorisnikaForm admin = new BrisanjeKorisnikaForm();
+            admin.ShowDialog();
         }
 
         private void VratiSanjinOmiljeniZanr_Click_1(object sender, EventArgs e)
@@ -92,16 +84,8 @@ namespace WatchMeOut
 
         private void btnObrisiFilm_Click(object sender, EventArgs e)
         {
-            Film film = DataProvider.GetFilm("3");
-
-            if (film != null)
-            {
-                DataProvider.DeleteFilm("3");
-
-                MessageBox.Show("Uspesno obrisan film " + film.nazivFilma + " iz " + film.godina + ". godine");
-            }
-            else
-                MessageBox.Show("U bazi ne postoji film sa id-jem 3!!");
+            BrisanjeFilmaForm admin = new BrisanjeFilmaForm();
+            admin.ShowDialog();
         }
     }
 }

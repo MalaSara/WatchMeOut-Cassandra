@@ -118,6 +118,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrisanjeFilmaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrisanjeFilmaForm.Designer.cs">
+      <DependentUpon>BrisanjeFilmaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrisanjeKorisnikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrisanjeKorisnikaForm.Designer.cs">
+      <DependentUpon>BrisanjeKorisnikaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BrisanjeFilmaForm.resx">
+      <DependentUpon>BrisanjeFilmaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrisanjeKorisnikaForm.resx">
+      <DependentUpon>BrisanjeKorisnikaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

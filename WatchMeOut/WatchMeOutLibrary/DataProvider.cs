@@ -36,10 +36,10 @@ namespace WatchMeOutLibrary
                 korisnik.omiljeniZanr = korisnikPodatak["omiljeniZanr"] != null ? korisnikPodatak["omiljeniZanr"].ToString() : string.Empty;
                 korisnik.idDoniranogFilma = korisnikPodatak["idDoniranogFilma"] != null ? korisnikPodatak["idDoniranogFilma"].ToString() : string.Empty;
 
-
+                return korisnik;
             }
 
-            return korisnik;
+            return null;
         }
 
         public static List<Korisnik> GetKorisnici()
