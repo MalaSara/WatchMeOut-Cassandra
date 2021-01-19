@@ -26,3 +26,27 @@ CREATE TABLE "Korisnik" (
     "idDoniranogFilma" text,
     PRIMARY KEY("korisnikId")
 )
+
+CREATE TABLE "Iznajmljivanje" (
+	"IDkorisnika" text,
+	"IDfilma" text,
+	od text,
+	"Do" text,
+	produzi text,
+	PRIMARY KEY ("IDkorisnika", "IDfilma")
+)
+
+CREATE TABLE "TrenutnoIznajmljeni" (
+	korisnik text,
+	film text,
+	od text,
+	"Do" text,
+	vraceno text,
+	PRIMARY KEY (korisnik, vraceno)
+)
+
+CREATE TABLE "IznajmljivanjePoFilmu" (
+	"nazivFilma" text,
+	iznajmljen text,
+	PRIMARY KEY ("nazivFilma", iznajmljen)
+)

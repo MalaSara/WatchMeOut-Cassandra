@@ -197,5 +197,158 @@ namespace WatchMeOutLibrary
 
         #endregion
 
+        #region TrenutnoIznajmljeni
+        public static TrenutnoIznajmljeni GetTrenutnoIznajmljeni(string korisnik, string vraceno)
+        {
+            ISession session = SessionManager.GetSession();
+            TrenutnoIznajmljeni trenutnoIznajmljeni = new TrenutnoIznajmljeni();
+
+            if (session == null)
+                return null;
+
+            Row trenutnoIznajmljeniPodatak = session.Execute("select * from \"TrenutnoIznajmljeni\" where korisnik='" + korisnik + "' and vraceno='" + vraceno + "'").FirstOrDefault();
+
+            if (trenutnoIznajmljeniPodatak != null)
+            {
+
+                trenutnoIznajmljeni.korisnik = trenutnoIznajmljeniPodatak["korisnik"] != null ? trenutnoIznajmljeniPodatak["korisnik"].ToString() : string.Empty;
+                trenutnoIznajmljeni.film = trenutnoIznajmljeniPodatak["film"] != null ? trenutnoIznajmljeniPodatak["film"].ToString() : string.Empty;
+                trenutnoIznajmljeni.od = trenutnoIznajmljeniPodatak["od"] != null ? trenutnoIznajmljeniPodatak["od"].ToString() : string.Empty;
+                trenutnoIznajmljeni.Do = trenutnoIznajmljeniPodatak["Do"] != null ? trenutnoIznajmljeniPodatak["Do"].ToString() : string.Empty;
+                trenutnoIznajmljeni.vraceno = trenutnoIznajmljeniPodatak["vraceno"] != null ? trenutnoIznajmljeniPodatak["vraceno"].ToString() : string.Empty;
+
+                return trenutnoIznajmljeni;
+            }
+
+            return null;
+        }
+
+        public static List<TrenutnoIznajmljeni> GetTrenutnoIznajmljeni()
+        {
+            ISession session = SessionManager.GetSession();
+            List<TrenutnoIznajmljeni> trenutnoIznajmljeni = new List<TrenutnoIznajmljeni>();
+
+            if (session == null)
+                return null;
+
+            var trenutnoIznajmljeniPodaci = session.Execute("select * from \"TrenutnoIznajmljeni\"");
+
+            foreach (var trenutnoIznajmljeniPodatak in trenutnoIznajmljeniPodaci)
+            {
+
+                TrenutnoIznajmljeni podatak = new TrenutnoIznajmljeni();
+                podatak.korisnik = trenutnoIznajmljeniPodatak["korisnik"] != null ? trenutnoIznajmljeniPodatak["korisnik"].ToString() : string.Empty;
+                podatak.film = trenutnoIznajmljeniPodatak["film"] != null ? trenutnoIznajmljeniPodatak["film"].ToString() : string.Empty;
+                podatak.od = trenutnoIznajmljeniPodatak["od"] != null ? trenutnoIznajmljeniPodatak["od"].ToString() : string.Empty;
+                podatak.Do = trenutnoIznajmljeniPodatak["Do"] != null ? trenutnoIznajmljeniPodatak["Do"].ToString() : string.Empty;
+                podatak.vraceno = trenutnoIznajmljeniPodatak["vraceno"] != null ? trenutnoIznajmljeniPodatak["vraceno"].ToString() : string.Empty;
+
+                trenutnoIznajmljeni.Add(podatak);
+            }
+
+            return trenutnoIznajmljeni;
+        }
+
+        public static void AddTrenutnoIznajmljeni(string korisnik, string film, string od, string Do, string vraceno)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            RowSet podatak = session.Execute("insert into \"TrenutnoIznajmljeni\"(korisnik,film,od,\"Do\", vraceno) values" 
+                + "('" + korisnik + "', '" + film + "','" + od + "','" + Do + "','" + vraceno + "')");
+
+
+        }
+
+        public static void DeleteTrenutnoIznajmljeni(string korisnik, string vraceno)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            RowSet podatak = session.Execute("delete from \"TrenutnoIznajmljeni\" where korisnik = '" + korisnik + "' and vraceno = '" + vraceno + "'");
+
+
+        }
+
+        #endregion
+
+        #region IznajmljivanjePoFilmu
+
+        public static IznajmljivanjePoFilmu GetIznajmljivanjePoFilmu(string nazivFilma, string iznajmljen)
+        {
+            ISession session = SessionManager.GetSession();
+            IznajmljivanjePoFilmu iznajmljivanjePoFilmu = new IznajmljivanjePoFilmu();
+
+            if (session == null)
+                return null;
+
+            Row podatak = session.Execute("select * from \"IznajmljivanjePoFilmu\" where \"nazivFilma\"='" + nazivFilma + "' and iznajmljen='" + iznajmljen + "'").FirstOrDefault();
+
+            if (podatak != null)
+            {
+
+                iznajmljivanjePoFilmu.nazivFilma = podatak["nazivFilma"] != null ? podatak["nazivFilma"].ToString() : string.Empty;
+                iznajmljivanjePoFilmu.iznajmljen = podatak["iznajmljen"] != null ? podatak["iznajmljen"].ToString() : string.Empty;
+
+                return iznajmljivanjePoFilmu;
+            }
+
+            return null;
+        }
+
+        public static List<IznajmljivanjePoFilmu> GetIznajmljivanjePoFilmu()
+        {
+            ISession session = SessionManager.GetSession();
+            List<IznajmljivanjePoFilmu> iznajmljivanjePoFilmu = new List<IznajmljivanjePoFilmu>();
+
+            if (session == null)
+                return null;
+
+            var podaci = session.Execute("select * from \"IznajmljivanjePoFilmu\"");
+
+            foreach (var iznajmljivanjePodatak in podaci)
+            {
+
+                IznajmljivanjePoFilmu podatak = new IznajmljivanjePoFilmu();
+                podatak.nazivFilma = iznajmljivanjePodatak["nazivFilma"] != null ? iznajmljivanjePodatak["nazivFilma"].ToString() : string.Empty;
+                podatak.iznajmljen = iznajmljivanjePodatak["iznajmljen"] != null ? iznajmljivanjePodatak["iznajmljen"].ToString() : string.Empty;
+
+                iznajmljivanjePoFilmu.Add(podatak);
+            }
+
+            return iznajmljivanjePoFilmu;
+        }
+
+        public static void AddIznajmljivanjePoFilmu(string nazivFilma, string iznajmljen)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            RowSet podatak = session.Execute("insert into \"IznajmljivanjePoFilmu\"(\"nazivFilma\", iznajmljen) values"
+                + "('" + nazivFilma + "','" + iznajmljen + "')");
+
+
+        }
+
+        public static void DeleteIznajmljivanjePoFilmu(string nazivFilma, string iznajmljen)
+        {
+            ISession session = SessionManager.GetSession();
+
+            if (session == null)
+                return;
+
+            RowSet podatak = session.Execute("delete from \"IznajmljivanjePoFilmu\" where \"nazivFilma\" = '" + nazivFilma + "' and iznajmljen = '" + iznajmljen + "'");
+
+
+        }
+
+        #endregion
+
     }
 }
