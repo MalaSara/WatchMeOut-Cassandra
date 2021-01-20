@@ -27,14 +27,6 @@ CREATE TABLE "Korisnik" (
     PRIMARY KEY("korisnikId")
 )
 
-CREATE TABLE "Iznajmljivanje" (
-	"IDkorisnika" text,
-	"IDfilma" text,
-	od text,
-	"Do" text,
-	produzi text,
-	PRIMARY KEY ("IDkorisnika", "IDfilma")
-)
 
 CREATE TABLE "TrenutnoIznajmljeni" (
 	korisnik text,

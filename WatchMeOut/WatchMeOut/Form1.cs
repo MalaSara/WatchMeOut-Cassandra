@@ -87,5 +87,68 @@ namespace WatchMeOut
             BrisanjeFilmaForm admin = new BrisanjeFilmaForm();
             admin.ShowDialog();
         }
+
+        private void btnD1_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddTrenutnoIznajmljeni("Milan Milanovic", "The Age of Adaline", "15.1.2021.", "25.1.2021.", "ne");
+        }
+
+        private void btnD2_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddTrenutnoIznajmljeni("Ana Krstic", "Scent of a Woman", "17.1.2021.", "27.1.2021.", "ne");
+        }
+
+        private void btnD3_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddTrenutnoIznajmljeni("Sanja Djordjevic", "Modigliani", "7.1.2021.", "17.1.2021.", "da");
+        }
+
+        private void btnVratiT_Click(object sender, EventArgs e)
+        {
+            List<TrenutnoIznajmljeni> iznajmljeni = DataProvider.GetTrenutnoIznajmljeni();
+
+            foreach (TrenutnoIznajmljeni iznajmljen in iznajmljeni)
+            {
+                MessageBox.Show(iznajmljen.korisnik + "\t" + iznajmljen.film + "\t" + iznajmljen.od
+                    + "\t" + iznajmljen.Do + "\t" + iznajmljen.vraceno + "\n");
+            }
+        }
+
+        private void btnObrisiT_Click(object sender, EventArgs e)
+        {
+            BrisanjeTrenutnoForm admin = new BrisanjeTrenutnoForm();
+            admin.ShowDialog();
+        }
+
+        private void btnDI1_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddIznajmljivanjePoFilmu("The Age of Adaline", "da");
+        }
+
+        private void btnDI2_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddIznajmljivanjePoFilmu("Scent of a Woman", "da");
+        }
+
+        private void btnDI3_Click(object sender, EventArgs e)
+        {
+            DataProvider.AddIznajmljivanjePoFilmu("Modigliani", "ne");
+        }
+
+        private void btnVratiI_Click(object sender, EventArgs e)
+        {
+            List<IznajmljivanjePoFilmu> iznajmljivanja = DataProvider.GetIznajmljivanjePoFilmu();
+
+            foreach (IznajmljivanjePoFilmu iznajmljivanje in iznajmljivanja)
+            {
+                MessageBox.Show(iznajmljivanje.nazivFilma + "\t" + iznajmljivanje.iznajmljen + "\n");
+            }
+        }
+
+        private void btnObrisiI_Click(object sender, EventArgs e)
+        {
+            BrisanjeIznajmljivanjeForm admin = new BrisanjeIznajmljivanjeForm();
+            admin.ShowDialog();
+        }
     }
 }
