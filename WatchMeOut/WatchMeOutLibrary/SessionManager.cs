@@ -13,7 +13,7 @@ namespace WatchMeOutLibrary
             if (session == null)
             {
                 Cluster cluster = Cluster.Builder().AddContactPoint("localhost").Build();
-                session = cluster.Connect("a");
+                session = cluster.Connect("videoklub");
             }
             return session;
         }
